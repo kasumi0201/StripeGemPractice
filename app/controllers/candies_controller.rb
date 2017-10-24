@@ -1,22 +1,28 @@
 class CandiesController < ApplicationController
   before_action :set_candy, only: [:show, :edit, :update, :destroy]
-  before_action :check_user
-
+  # before_action :check_user
+  attr_accessor :candy, :user
   # GET /candies
   # GET /candies.json
   def index
     @candies = Candy.all
+    @candy = Candy.new
   end
 
   # GET /candies/1
   # GET /candies/1.json
   def show
+    @candy = Candy.find(params[:id])
   end
 
   # GET /candies/new
+
   def new
     @candy = Candy.new
+    @user = current_user
   end
+
+
 
   # GET /candies/1/edit
   def edit
@@ -68,11 +74,11 @@ class CandiesController < ApplicationController
       @candy = Candy.find(params[:id])
     end
 
-     def check_user
-        @candy.user == current_user
-     end
+    #  def check_user
+    #     @candy.user == current_user
+    #  end
     # Never trust parameters from the scary internet, only allow the white list through.
     def candy_params
-      params.require(:candy).permit(:name, :image_data, :price, :description)
+      params.require(:candy).permit(:name,  :price, :description, :title, :image)
     end
 end

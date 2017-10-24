@@ -20,5 +20,7 @@
   <%= @candy.description %>
 </p>
 
+<img src= "<%= @candy.image_url%>">
+
 <%= link_to 'Edit', edit_candy_path(@candy) %> |
 <%= link_to 'Back', candies_path %>

@@ -8,6 +8,7 @@ end
 gem 'stripe'
 gem 'devise'
 gem 'omniauth-twitter'
+gem "shrine"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

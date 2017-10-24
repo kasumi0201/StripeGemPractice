@@ -17,7 +17,7 @@
     <% @candies.each do |candy| %>
       <tr>
         <td><%= candy.name %></td>
-        <td><%= candy.image_data %></td>
+        <td><img src="<%= candy.image_url %>"></td>
         <td><%= candy.price %></td>
         <td><%= candy.description %></td>
         <td><%= link_to 'Show', candy %></td>
@@ -31,3 +31,5 @@
 <br>
 
 <%= link_to 'New Candy', new_candy_path %>
+
+<%= render @candies %>
